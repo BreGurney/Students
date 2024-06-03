@@ -26,14 +26,14 @@ namespace Students.Controllers
             }
             else
             {
-                string connectionString = @"Data Source=LAPTOP-R6CK06S9;Initial Catalog=Students;IntegratedSecurity=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                string connectionString = @"Data Source=LAPTOP-R6CK06S9;Initial Catalog=Students;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
                 string queryString = @"INSERT INTO Signups (StudentId, FirstName, LastName, EmailAddress) VALUES 
                                         (@StudentId, @FirstName, @LastName, @EmailAddress)";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    SqlConnection command = new SqlCommand(queryString, connection);
+                    SqlCommand command = new SqlCommand(queryString, connection);
                     command.Parameters.Add("@StudentId", SqlDbType.VarChar);
                     command.Parameters.Add("@FirstName", SqlDbType.VarChar);
                     command.Parameters.Add("@LastName", SqlDbType.VarChar);
